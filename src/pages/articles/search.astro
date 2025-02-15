@@ -5,7 +5,7 @@ import SearchForm from "../../components/SearchForm.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-const query: string | null = Astro.url.searchParams.get('query');
+const query: string | null = Astro.url.searchParams.get('query')?.toLowerCase() || '';
 
 const allBlogArticles: CollectionEntry<'blog'>[] = await getCollection('blog');
 
